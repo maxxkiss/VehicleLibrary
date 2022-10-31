@@ -6,21 +6,17 @@
     public IEngineAdapter RPM { get; set; }
 
 
-    public Axis(MovingPart[] movingParts)
+    public Axis(MovingPart[] movingParts, IEngineAdapter engine)
     {
         MovingParts = movingParts;
         QuantityMovingParts = movingParts.Length;
+        RPM = engine;
+        RPM.MoveStarted += () =>
+        {
+            foreach (var part in MovingParts)
+                part.CurrentSpeed++;
+        };
     }
-
-    public void Acceleration()
-    {
-        //RPM.MoveStarted += () =>
-        //{
-        foreach (var part in MovingParts)
-            part.CurrentSpeed++;
-        //};
-    }
-
     public string Brakes()
     {
         int speedBeforeBrake;

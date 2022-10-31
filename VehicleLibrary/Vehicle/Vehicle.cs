@@ -4,16 +4,26 @@ public class Vehicle : IVehicle
     private string _model;
     public IEngineAdapter EngineAdapter;
     public ICarrierAdapter CarrierAdapter;
-        
-    public string Brand { get { return _brand; } }
-    public string Model { get { return _model; } set { _model = value; } }
 
-    public Vehicle (string brand, string model, IEngineAdapter engineAdapter, ICarrierAdapter carrierAdapter)
+    public string Brand { get { return _brand; } }
+    public string Model
+    {
+        get
+        {
+            return _model;
+        }
+        set
+        {
+            _model = value;
+        }
+    }
+
+    public Vehicle(string brand, string model, IEngineAdapter engineAdapter, ICarrierAdapter carrierAdapter)
     {
         _brand = brand;
         _model = model;
-        this.EngineAdapter = engineAdapter;
-        this.CarrierAdapter = carrierAdapter;
+        EngineAdapter = engineAdapter;
+        CarrierAdapter = carrierAdapter;
     }
 
     public string Move()

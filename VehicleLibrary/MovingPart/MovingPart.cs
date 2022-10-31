@@ -1,6 +1,6 @@
 ﻿public abstract class MovingPart
 {
-    protected string Manufacturer;
+    protected string _manufacturer;
     protected int _currentSpeed = 0;
 
     public int CurrentSpeed 
@@ -11,7 +11,7 @@
 
     public MovingPart(string manufacturer)
     {
-        Manufacturer = manufacturer;
+        _manufacturer = manufacturer;
     }
 
     public int TestCurrentSpeed()

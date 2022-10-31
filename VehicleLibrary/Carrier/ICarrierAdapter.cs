@@ -4,6 +4,5 @@ public interface ICarrierAdapter
     public MovingPart[] MovingParts { get; set; }
     public IEngineAdapter RPM { get; set; }
 
-    public void Acceleration();
     public string Brakes();
 }

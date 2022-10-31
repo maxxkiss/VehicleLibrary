@@ -6,21 +6,17 @@
     public IEngineAdapter RPM { get; set; }
 
 
-    public Suspension(MovingPart[] movingParts)
+    public Suspension(MovingPart[] movingParts, IEngineAdapter engine)
     {
         MovingParts = movingParts;
         QuantityMovingParts = movingParts.Length;
-    }
-
-    public void Acceleration()
-    {
-        //RPM.MoveStarted += () =>
-        //{
+        RPM = engine;
+        RPM.MoveStarted += () =>
+        {
             foreach (var part in MovingParts)
                 part.CurrentSpeed++;
-        //};
+        };
     }
-
     public string Brakes()
     {
         int speedBeforeBrake;
